@@ -1,7 +1,7 @@
 {
   "name": "cosmic-sumi-theme",
-  "displayName": "Cosmic Sumi",
-  "description": "Dark colour theme from the COSMIC Sumi rice, syntax as in its Neovim scheme.",
+  "displayName": "Cosmic Sumi / Cosmic Sumi Day",
+  "description": "Cosmic Sumi (dark) and Cosmic Sumi Day (light), the COSMIC rice pair, for Cursor and VS Code",
   "version": "1.0.0",
   "publisher": "atraxsrc",
   "license": "MIT",
@@ -23,8 +23,10 @@
   "keywords": [
     "theme",
     "dark",
+    "light",
     "cosmic",
     "sumi",
+    "sumiday",
     "cursor"
   ],
   "contributes": {
@@ -33,6 +35,11 @@
         "label": "Cosmic Sumi",
         "uiTheme": "vs-dark",
         "path": "./themes/cosmic-sumi-color-theme.json"
+      },
+      {
+        "label": "Cosmic Sumi Day",
+        "uiTheme": "vs",
+        "path": "./themes/cosmic-sumiday-color-theme.json"
       }
     ]
   }
