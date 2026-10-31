@@ -24,4 +24,4 @@ fi
 
 echo
 echo "Done. In Claude Desktop press Ctrl+Shift+T and pick cosmic-sumi."
-echo "Sumi is dark only; Settings -> Appearance changes nothing."
+echo "Sumi is the dark half; Settings -> Appearance -> Light shows Sumi Day."
