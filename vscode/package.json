@@ -1,0 +1,39 @@
+{
+  "name": "cosmic-sumi-theme",
+  "displayName": "Cosmic Sumi",
+  "description": "Dark colour theme from the COSMIC Sumi rice, syntax as in its Neovim scheme.",
+  "version": "1.0.0",
+  "publisher": "atraxsrc",
+  "license": "MIT",
+  "icon": "icon.png",
+  "galleryBanner": {
+    "color": "#050505",
+    "theme": "dark"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/atraxsrc/cosmic-sumi-theme"
+  },
+  "engines": {
+    "vscode": "^1.70.0"
+  },
+  "categories": [
+    "Themes"
+  ],
+  "keywords": [
+    "theme",
+    "dark",
+    "cosmic",
+    "sumi",
+    "cursor"
+  ],
+  "contributes": {
+    "themes": [
+      {
+        "label": "Cosmic Sumi",
+        "uiTheme": "vs-dark",
+        "path": "./themes/cosmic-sumi-color-theme.json"
+      }
+    ]
+  }
+}
