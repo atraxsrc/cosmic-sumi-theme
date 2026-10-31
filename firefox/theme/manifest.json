@@ -1,0 +1,50 @@
+{
+  "manifest_version": 2,
+  "name": "Cosmic Sumi",
+  "version": "1.0",
+  "description": "Jet theme from the COSMIC Sumi rice: lichen icons, one moss accent.",
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "{58ef2717-e964-4818-a877-9ea29bdb323a}"
+    }
+  },
+  "icons": {
+    "32": "icons/icon-32.png",
+    "48": "icons/icon-48.png",
+    "64": "icons/icon-64.png",
+    "96": "icons/icon-96.png",
+    "128": "icons/icon-128.png"
+  },
+  "theme": {
+    "colors": {
+      "toolbar": "#111111",
+      "toolbar_text": "#d6d0c5",
+      "frame": "#050505",
+      "tab_background_text": "#9fa89c",
+      "tab_text": "#8b9388",
+      "toolbar_field": "#2a2a2a",
+      "toolbar_field_text": "#d6d0c5",
+      "toolbar_field_border_focus": "#8B9388",
+      "toolbar_field_highlight": "#8B9388",
+      "toolbar_field_highlight_text": "#050505",
+      "tab_line": "#8B9388",
+      "popup": "#111111",
+      "popup_text": "#d6d0c5",
+      "button_background_active": "#8B9388",
+      "button_background_hover": "#2a2a2a",
+      "frame_inactive": "#050505",
+      "icons_attention": "#8B9388",
+      "icons": "#9fa89c",
+      "ntp_background": "#050505",
+      "ntp_text": "#d6d0c5",
+      "popup_border": "#75897F",
+      "popup_highlight_text": "#050505",
+      "popup_highlight": "#8B9388",
+      "sidebar_border": "#2a2a2a",
+      "sidebar_highlight_text": "#050505",
+      "sidebar_highlight": "#8B9388",
+      "sidebar_text": "#d6d0c5",
+      "tab_loading": "#8B9388"
+    }
+  }
+}

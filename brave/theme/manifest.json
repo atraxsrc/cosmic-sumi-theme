@@ -1,0 +1,36 @@
+{
+  "manifest_version": 3,
+  "name": "Cosmic Sumi",
+  "version": "1.0",
+  "description": "Jet theme from the COSMIC Sumi rice: lichen icons, one moss accent.",
+  "icons": {
+    "32": "icons/icon-32.png",
+    "48": "icons/icon-48.png",
+    "128": "icons/icon-128.png"
+  },
+  "theme": {
+    "colors": {
+      "frame": [5, 5, 5],
+      "frame_inactive": [5, 5, 5],
+      "frame_incognito": [5, 5, 5],
+      "frame_incognito_inactive": [5, 5, 5],
+      "background_tab": [5, 5, 5],
+      "background_tab_inactive": [5, 5, 5],
+      "background_tab_incognito": [5, 5, 5],
+      "background_tab_incognito_inactive": [5, 5, 5],
+      "toolbar": [17, 17, 17],
+      "tab_text": [139, 147, 136],
+      "tab_background_text": [159, 168, 156],
+      "tab_background_text_inactive": [159, 168, 156],
+      "tab_background_text_incognito": [159, 168, 156],
+      "tab_background_text_incognito_inactive": [159, 168, 156],
+      "bookmark_text": [214, 208, 197],
+      "toolbar_button_icon": [159, 168, 156],
+      "omnibox_background": [42, 42, 42],
+      "omnibox_text": [214, 208, 197],
+      "ntp_background": [5, 5, 5],
+      "ntp_text": [214, 208, 197],
+      "ntp_link": [139, 147, 136]
+    }
+  }
+}
