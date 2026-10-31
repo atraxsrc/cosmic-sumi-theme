@@ -1,0 +1,41 @@
+# 256-colour codes nearest the Sumi palette on jet (lsd 1.0.0 does not accept
+# #hex here): 245 moss, 167 vermilion, 173 coral, 247 lichen, 143 gold,
+# 244 fern, 244 stone, 59 dusk.
+user: 143
+group: 244
+permission:
+  read: 244
+  write: 143
+  exec: 245
+  exec-sticky: 245
+  no-access: 59
+  octal: 244
+  acl: 244
+  context: 244
+date:
+  hour-old: 143
+  day-old: 247
+  older: 59
+size:
+  none: 59
+  small: 247
+  medium: 143
+  large: 167
+inode:
+  valid: 247
+  invalid: 167
+links:
+  valid: 244
+  invalid: 167
+tree-edge: 59
+git-status:
+  default: 59
+  unmodified: 59
+  ignored: 59
+  new-in-index: 247
+  new-in-workdir: 247
+  typechange: 143
+  deleted: 167
+  renamed: 244
+  modified: 173
+  conflicted: 167
