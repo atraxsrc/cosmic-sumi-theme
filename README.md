@@ -13,6 +13,7 @@ the light half is [cosmic-sumiday-theme](https://github.com/atraxsrc/cosmic-sumi
 ![COSMIC](https://img.shields.io/badge/COSMIC-1.0.0-9fa89c?style=for-the-badge)
 ![Sumi](https://img.shields.io/badge/Theme-Sumi-050505?style=for-the-badge&labelColor=8b9388)
 ![Firefox](https://img.shields.io/badge/Firefox-Sumi-8b9388?style=for-the-badge&logo=firefox-browser&logoColor=white)
+[![Gallery](https://img.shields.io/badge/Gallery-All_rices-8b9388?style=for-the-badge)](https://atraxsrc.github.io/cosmic-rices/)
 ![License](https://img.shields.io/badge/License-MIT-817e77?style=for-the-badge)
 
 </div>
