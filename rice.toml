@@ -1,0 +1,6 @@
+name = "Sumi"
+mode = "dark"
+theme = "Sumi.ron"
+pair = "sumiday"
+terminal = "Sumi-term.ron"
+btop = "Sumi"
