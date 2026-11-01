@@ -1,0 +1,76 @@
+"$schema" = "https://starship.rs/config-schema.json"
+# Sumi starship prompt, part of cosmic-sumi-theme (MIT).
+# Close to the defaults, coloured from the palette: secondary-text directory,
+# branch in the yellow slot, the warning colour for a dirty tree, a success
+# prompt character (the error colour after a failed command), HH:MM clock on
+# the right. Modules without a style here keep their defaults, which use the
+# ANSI slots the COSMIC Terminal scheme already colours.
+
+format = "$all"
+right_format = "$time"
+palette = "sumi"
+
+[palettes.sumi]
+accent = "#8B9388"
+warning = "#E07969"
+success = "#9FA89C"
+error = "#DA614E"
+third = "#C2A46D"
+secondary = "#75897F"
+faint = "#817E77"
+dim = "#5F5D58"
+fg = "#D6D0C5"
+
+[character]
+success_symbol = "[❯](bold success)"
+error_symbol = "[❯](bold error)"
+vimcmd_symbol = "[❮](bold third)"
+
+[directory]
+style = "bold secondary"
+read_only_style = "error"
+repo_root_style = "bold third"
+
+[git_branch]
+style = "bold third"
+
+[git_commit]
+style = "bold third"
+
+[git_state]
+style = "bold warning"
+
+[git_status]
+style = "warning"
+
+[git_metrics]
+added_style = "success"
+deleted_style = "error"
+
+[username]
+style_user = "success"
+style_root = "bold error"
+
+[hostname]
+style = "success"
+
+[cmd_duration]
+style = "faint"
+
+[status]
+style = "bold error"
+
+[sudo]
+style = "bold warning"
+
+[jobs]
+style = "warning"
+
+[dart]
+disabled = true
+
+[time]
+disabled = false
+time_format = "%H:%M"
+format = "[$time]($style)"
+style = "dim"

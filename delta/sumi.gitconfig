@@ -1,0 +1,56 @@
+# Sumi for delta (the git diff pager), part of cosmic-sumi-theme (MIT).
+# Removed lines in the error colour, added lines in the success colour, both
+# on the editor's container; changed words on a solid error / success block
+# with the editor background as text (the same as DiffAdd / DiffDelete /
+# DiffText in Neovim). Code inside the diff uses the bat Sumi theme, so run
+# ./bat/install.sh first.
+#
+# Install: ./delta/install.sh puts this in ~/.config/delta/, then add to
+# ~/.gitconfig (the installer prints this, it never edits ~/.gitconfig):
+#   [include]
+#       path = ~/.config/delta/sumi.gitconfig
+# and, if delta is not your pager yet:
+#   [core]
+#       pager = delta
+#   [interactive]
+#       diffFilter = delta --color-only
+
+[delta]
+    features = sumi
+
+[delta "sumi"]
+    dark = true
+    syntax-theme = Sumi
+    navigate = true
+    line-numbers = true
+
+    file-style = bold "#8B9388"
+    file-decoration-style = "#5F5D58" ul
+    hunk-header-style = file line-number syntax
+    hunk-header-decoration-style = "#5F5D58" box
+    hunk-header-file-style = "#75897F"
+    hunk-header-line-number-style = "#C2A46D"
+
+    minus-style = "#DA614E" "#111111"
+    minus-emph-style = bold "#050505" "#DA614E"
+    minus-non-emph-style = "#DA614E" "#111111"
+    plus-style = "#9FA89C" "#111111"
+    plus-emph-style = bold "#050505" "#9FA89C"
+    plus-non-emph-style = "#9FA89C" "#111111"
+    zero-style = syntax
+    whitespace-error-style = "#050505" "#E07969"
+
+    line-numbers-left-style = "#5F5D58"
+    line-numbers-right-style = "#5F5D58"
+    line-numbers-minus-style = "#DA614E"
+    line-numbers-plus-style = "#9FA89C"
+    line-numbers-zero-style = "#5F5D58"
+
+    commit-style = bold "#C2A46D"
+    commit-decoration-style = "#5F5D58" box
+    blame-palette = "#050505 #111111 #1E1E1E"
+    blame-code-style = syntax
+    merge-conflict-begin-symbol = ▼
+    merge-conflict-end-symbol = ▲
+    merge-conflict-ours-diff-header-style = bold "#9FA89C"
+    merge-conflict-theirs-diff-header-style = bold "#E07969"

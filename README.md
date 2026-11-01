@@ -60,6 +60,13 @@ carry it with jet text on top.
 
 ```
 .
+├── alacritty
+│   ├── sumi.toml                # Alacritty colour scheme
+│   └── install.sh
+├── bat
+│   ├── Sumi.tmTheme             # bat syntax theme (delta uses it too)
+│   ├── config                   # --theme="Sumi"
+│   └── install.sh
 ├── brave
 │   ├── theme                    # Chromium theme (manifest + icons), Load unpacked
 │   └── README.md
@@ -82,6 +89,21 @@ carry it with jet text on top.
 │   ├── install.sh
 │   ├── uninstall.sh
 │   └── README.md
+├── delta
+│   ├── sumi.gitconfig           # delta (git pager) colours, [include] it from ~/.gitconfig
+│   └── install.sh
+├── discord
+│   ├── cosmic-sumi.theme.css    # Vencord / Vesktop theme, Sumi (dark) + Sumi Day (light)
+│   └── install.sh
+├── ghostty
+│   ├── Sumi                     # Ghostty theme
+│   └── install.sh
+├── gtk
+│   ├── sumi.css                 # GTK 3 / 4 named colours for non-COSMIC apps
+│   └── install.sh
+├── helix
+│   ├── sumi.toml                # Helix theme
+│   └── install.sh
 ├── icons
 │   └── install.sh               # Cosmic-Sumi icon pack from cosmic-icon-themes
 ├── fastfetch
@@ -95,11 +117,26 @@ carry it with jet text on top.
 │   │   └── userContent.css      # new tab accent
 │   ├── install.sh
 │   └── README.md
+├── kitty
+│   ├── Sumi.conf                # kitty colour scheme
+│   └── install.sh
+├── lazygit
+│   ├── sumi.yml                 # lazygit colours only, stacked on your config.yml
+│   └── install.sh
 ├── lsd
 │   ├── config.yaml              # theme: custom
 │   ├── colors.yaml              # permission / size / date / git columns
 │   └── install.sh
 ├── nvim                         # Neovim colorscheme, LazyVim spec, RON syntax, install.sh
+├── obsidian
+│   ├── cosmic-sumi.css          # CSS snippet, Sumi (dark) + Sumi Day (light)
+│   └── install.sh
+├── qt
+│   ├── Sumi.conf                # qt5ct / qt6ct colour scheme
+│   └── install.sh
+├── starship
+│   ├── starship.toml            # prompt, palette colours, clock on the right
+│   └── install.sh
 ├── telegram
 │   ├── colors.tdesktop-theme    # Telegram Desktop colour scheme (source)
 │   ├── cosmic-sumi.tdesktop-theme # built theme, open this in Telegram
@@ -112,8 +149,11 @@ carry it with jet text on top.
 ├── scripts
 │   ├── update_system.sh         # nala + flatpak, moss / lichen ANSI
 │   └── switch.sh                # make this the active rice (see Switching rice)
+├── wezterm
+│   ├── sumi.lua                 # WezTerm colours, config.colors = require("sumi")
+│   └── install.sh
 ├── zsh
-│   ├── sumi.zsh                   # LS_COLORS, highlighting colours, aliases, starship
+│   ├── sumi.zsh                   # LS_COLORS, highlighting colours, aliases, starship, lazygit
 │   └── install.sh
 ├── assets
 │   ├── cursors/                 # cursor preview
@@ -316,6 +356,90 @@ own theme.
 
 ---
 
+## GTK and Qt apps
+
+COSMIC colours GTK apps itself when Appearance → **Apply theme to GNOME apps**
+is on (the baseline config turns it on). `gtk/sumi.css` is the same palette
+pinned by hand for GTK 3 and GTK 4 / libadwaita apps: windows and lists on
+![#050505](https://placehold.co/12x12/050505/050505.png) `#050505`, cards, popovers and dialogs on ![#111111](https://placehold.co/12x12/111111/111111.png) `#111111`, text in ![#D6D0C5](https://placehold.co/12x12/d6d0c5/d6d0c5.png) `#D6D0C5`, selection
+and accent in ![#8B9388](https://placehold.co/12x12/8b9388/8b9388.png) `#8B9388` with ![#050505](https://placehold.co/12x12/050505/050505.png) `#050505` text on it, ![#9FA89C](https://placehold.co/12x12/9fa89c/9fa89c.png) `#9FA89C` for
+success and ![#E07969](https://placehold.co/12x12/e07969/e07969.png) `#E07969` for warnings. It only sets the named colours, so
+widgets keep their stock shapes, and it also works where COSMIC's toggle does
+not reach (another desktop, Flatpak apps given access to `~/.config/gtk-4.0`).
+
+```bash
+./gtk/install.sh
+```
+
+It copies the file to `~/.config/gtk-3.0/` and `~/.config/gtk-4.0/` and adds
+`@import url("sumi.css");` to `gtk.css` there, after COSMIC's own import so
+these colours win (backup in `gtk.css.bak`); another rice's import is
+commented out. Restart GTK apps.
+
+`qt/Sumi.conf` is a colour scheme for [qt5ct](https://github.com/desktop-app/qt5ct)
+/ [qt6ct](https://github.com/trialuser02/qt6ct): windows on ![#050505](https://placehold.co/12x12/050505/050505.png) `#050505`, text
+fields and lists on ![#030303](https://placehold.co/12x12/030303/030303.png) `#030303`, buttons and tooltips on ![#111111](https://placehold.co/12x12/111111/111111.png) `#111111`, text in
+![#D6D0C5](https://placehold.co/12x12/d6d0c5/d6d0c5.png) `#D6D0C5`, ![#8B9388](https://placehold.co/12x12/8b9388/8b9388.png) `#8B9388` for the highlight and links, placeholders in ![#817E77](https://placehold.co/12x12/817e77/817e77.png) `#817E77`,
+disabled text in ![#5F5D58](https://placehold.co/12x12/5f5d58/5f5d58.png) `#5F5D58`.
+
+```bash
+./qt/install.sh
+# qt6ct → Appearance → Color scheme → Sumi, Palette: Custom → Apply
+```
+
+Qt apps read it with `QT_QPA_PLATFORMTHEME=qt6ct` (or `qt5ct`) in the
+environment; `~/.config/environment.d/` or your `~/.zshrc` is the place.
+
+Text and secondary text read at 4.5:1 or better on the window, container and
+field colours; disabled, placeholder and dim text, like comments elsewhere in
+the rice, at 2.9:1.
+
+---
+
+## Obsidian
+
+`obsidian/cosmic-sumi.css` is a CSS snippet with both halves of the pair:
+Sumi in dark mode, Sumi Day in light mode, so with Settings →
+Appearance → Base color scheme → **Adapt to system** Obsidian follows COSMIC's
+Dark / Light toggle. Editor on ![#050505](https://placehold.co/12x12/050505/050505.png) `#050505`, sidebars on ![#111111](https://placehold.co/12x12/111111/111111.png) `#111111`, text in ![#D6D0C5](https://placehold.co/12x12/d6d0c5/d6d0c5.png) `#D6D0C5`,
+links and accent in ![#8B9388](https://placehold.co/12x12/8b9388/8b9388.png) `#8B9388`, headings coloured like Neovim's
+(![#8B9388](https://placehold.co/12x12/8b9388/8b9388.png) `#8B9388` / ![#C2A46D](https://placehold.co/12x12/c2a46d/c2a46d.png) `#C2A46D` / ![#75897F](https://placehold.co/12x12/75897f/75897f.png) `#75897F`), code and checkboxes in ![#9FA89C](https://placehold.co/12x12/9fa89c/9fa89c.png) `#9FA89C`, tags
+in ![#C2A46D](https://placehold.co/12x12/c2a46d/c2a46d.png) `#C2A46D`. The same file ships in cosmic-sumiday-theme.
+
+```bash
+./obsidian/install.sh ~/path/to/vault
+# Settings → Appearance → CSS snippets → cosmic-sumi
+```
+
+It copies the file into the vault's `.obsidian/snippets/`. Snippets are per
+vault, so run it once per vault.
+
+---
+
+## Discord
+
+`discord/cosmic-sumi.theme.css` is a theme for [Vencord](https://vencord.dev/)
+and [Vesktop](https://github.com/Vencord/Vesktop), colours only: chat on
+![#050505](https://placehold.co/12x12/050505/050505.png) `#050505`, sidebars and inputs on ![#111111](https://placehold.co/12x12/111111/111111.png) `#111111`, server list on ![#030303](https://placehold.co/12x12/030303/030303.png) `#030303`, text in
+![#D6D0C5](https://placehold.co/12x12/d6d0c5/d6d0c5.png) `#D6D0C5`, channel names in ![#75897F](https://placehold.co/12x12/75897f/75897f.png) `#75897F`, accent, mentions and links in
+![#8B9388](https://placehold.co/12x12/8b9388/8b9388.png) `#8B9388`, ![#9FA89C](https://placehold.co/12x12/9fa89c/9fa89c.png) `#9FA89C` for online and positive, ![#E07969](https://placehold.co/12x12/e07969/e07969.png) `#E07969` for
+warnings. The light half is Sumi Day and the dark half Sumi, so
+with Appearance → Theme → **Sync with computer** it follows COSMIC's toggle.
+The same file ships in cosmic-sumiday-theme.
+
+```bash
+./discord/install.sh
+# Settings → Vencord → Themes → Cosmic Sumi
+```
+
+It copies the file into `~/.config/Vencord/themes/` and
+`~/.config/vesktop/themes/`, whichever exist. Discord renames its CSS
+variables now and then; the file sets both the long-standing names and the
+2025 `--bg-*` set. Text on the surfaces is 4.5:1 or better; the text on
+Discord's own accent-coloured buttons stays its white, at 3.2:1.
+
+---
+
 ## Cursor
 
 **Oxygen** cursors recoloured to the icon colours, one per folder colour of the
@@ -362,12 +486,125 @@ Makes this the active rice, coming from any other `cosmic-*-theme` rice. See
 Need a [Nerd Font](https://www.nerdfonts.com/) in the terminal for the icons
 (Maple Mono NFM in the baseline above).
 
+### kitty, Alacritty, WezTerm, Ghostty
+
+The COSMIC Terminal scheme for other terminals, one file each with the same
+sixteen ANSI colours, text in ![#D6D0C5](https://placehold.co/12x12/d6d0c5/d6d0c5.png) `#D6D0C5`, the cursor in ![#8B9388](https://placehold.co/12x12/8b9388/8b9388.png) `#8B9388` and the
+selection on ![#2A2A2A](https://placehold.co/12x12/2a2a2a/2a2a2a.png) `#2A2A2A`. Each installer copies the file next to that terminal's
+config and backs up what it replaces; the one include line you add is
+printed, and is in the comment at the top of each file:
+
+```bash
+./kitty/install.sh        # ~/.config/kitty/themes/Sumi.conf       kitty.conf:     include themes/Sumi.conf
+./alacritty/install.sh    # ~/.config/alacritty/themes/sumi.toml   alacritty.toml: [general] import = ["~/.config/alacritty/themes/sumi.toml"]
+./wezterm/install.sh      # ~/.config/wezterm/sumi.lua             wezterm.lua:    config.colors = require("sumi")
+./ghostty/install.sh      # ~/.config/ghostty/themes/Sumi          config:         theme = Sumi
+```
+
+Ghostty and WezTerm can follow COSMIC's Dark / Light toggle once the Sumi Day
+half is installed from its repo as well: `theme = dark:Sumi,light:SumiDay` in
+Ghostty, and in WezTerm
+
+```lua
+local dark = (wezterm.gui and wezterm.gui.get_appearance() or "Dark"):find("Dark")
+config.colors = require(dark and "sumi" or "sumiday")
+```
+
+kitty and Alacritty have no such switch; include the other file instead.
+
+### starship
+
+`starship/starship.toml` is close to the defaults with the palette declared
+once as `[palettes.sumi]` and used by name: the directory in ![#75897F](https://placehold.co/12x12/75897f/75897f.png) `#75897F`,
+the branch in ![#C2A46D](https://placehold.co/12x12/c2a46d/c2a46d.png) `#C2A46D`, ![#E07969](https://placehold.co/12x12/e07969/e07969.png) `#E07969` for a dirty tree, a ![#9FA89C](https://placehold.co/12x12/9fa89c/9fa89c.png) `#9FA89C` prompt
+character that turns ![#DA614E](https://placehold.co/12x12/da614e/da614e.png) `#DA614E` after a failed command, a dim `HH:MM` clock on
+the right. Modules it does not style keep their defaults, which use the ANSI
+slots the COSMIC Terminal scheme colours. `zsh/sumi.zsh` already runs
+`starship init`. `install.sh` backs up any existing `~/.config/starship.toml`
+to `starship.toml.bak`.
+
+```bash
+./starship/install.sh
+```
+
+### bat
+
+`bat/Sumi.tmTheme` is a syntax theme coloured the way Neovim is in this
+rice: keywords in ![#8B9388](https://placehold.co/12x12/8b9388/8b9388.png) `#8B9388`, strings in ![#9FA89C](https://placehold.co/12x12/9fa89c/9fa89c.png) `#9FA89C`, functions in ![#C2A46D](https://placehold.co/12x12/c2a46d/c2a46d.png) `#C2A46D`, numbers
+in ![#E07969](https://placehold.co/12x12/e07969/e07969.png) `#E07969`, types in ![#75897F](https://placehold.co/12x12/75897f/75897f.png) `#75897F`, imports and escapes in ![#A68C5C](https://placehold.co/12x12/a68c5c/a68c5c.png) `#A68C5C`, italic
+comments in ![#5F5D58](https://placehold.co/12x12/5f5d58/5f5d58.png) `#5F5D58`, on the editor background ![#050505](https://placehold.co/12x12/050505/050505.png) `#050505`. `zsh/sumi.zsh`
+aliases `cat` to bat. `install.sh` copies the theme to `~/.config/bat/themes/`,
+rebuilds bat's cache so bat and delta can find it, and sets `--theme="Sumi"`
+in `~/.config/bat/config` (backup in `config.bak`).
+
+```bash
+./bat/install.sh
+batcat README.md
+```
+
+### delta
+
+`delta/sumi.gitconfig` colours [delta](https://github.com/dandavison/delta),
+the git diff pager: removed lines in ![#DA614E](https://placehold.co/12x12/da614e/da614e.png) `#DA614E` and added lines in
+![#9FA89C](https://placehold.co/12x12/9fa89c/9fa89c.png) `#9FA89C` on the container ![#111111](https://placehold.co/12x12/111111/111111.png) `#111111`, changed words on a solid block of
+those two colours with ![#050505](https://placehold.co/12x12/050505/050505.png) `#050505` text, the same as Neovim's diff highlights;
+file names in ![#8B9388](https://placehold.co/12x12/8b9388/8b9388.png) `#8B9388`, commit hashes in ![#C2A46D](https://placehold.co/12x12/c2a46d/c2a46d.png) `#C2A46D`, hunk headers in
+![#75897F](https://placehold.co/12x12/75897f/75897f.png) `#75897F` inside ![#5F5D58](https://placehold.co/12x12/5f5d58/5f5d58.png) `#5F5D58` boxes, line numbers. Code inside the diff
+uses the bat theme above, so install that first. `install.sh` copies the file
+to `~/.config/delta/` and prints the `[include]` to add to `~/.gitconfig`; it
+never edits that file.
+
+```bash
+./delta/install.sh
+```
+
+```ini
+# ~/.gitconfig
+[include]
+    path = ~/.config/delta/sumi.gitconfig
+[core]
+    pager = delta
+[interactive]
+    diffFilter = delta --color-only
+```
+
+### lazygit
+
+`lazygit/sumi.yml` holds only the `gui.theme` block: active border in
+![#8B9388](https://placehold.co/12x12/8b9388/8b9388.png) `#8B9388`, inactive borders in ![#5F5D58](https://placehold.co/12x12/5f5d58/5f5d58.png) `#5F5D58`, the selected line on ![#1E1E1E](https://placehold.co/12x12/1e1e1e/1e1e1e.png) `#1E1E1E`,
+![#C2A46D](https://placehold.co/12x12/c2a46d/c2a46d.png) `#C2A46D` and ![#9FA89C](https://placehold.co/12x12/9fa89c/9fa89c.png) `#9FA89C` marks for cherry-picked and base commits,
+unstaged changes in ![#DA614E](https://placehold.co/12x12/da614e/da614e.png) `#DA614E`, author names in ![#C2A46D](https://placehold.co/12x12/c2a46d/c2a46d.png) `#C2A46D`. lazygit reads one
+config file, so instead of replacing your `~/.config/lazygit/config.yml` the
+installer drops the theme beside it and `zsh/sumi.zsh` sets `LG_CONFIG_FILE`
+to both, your file first, so the colours win and your keybindings stay.
+
+```bash
+./lazygit/install.sh
+exec zsh
+```
+
+Without the zsh layer, export it yourself:
+`LG_CONFIG_FILE="$HOME/.config/lazygit/config.yml,$HOME/.config/lazygit/sumi.yml"`.
+
+### Helix
+
+`helix/sumi.toml` is the Neovim colorscheme for [Helix](https://helix-editor.com/):
+same syntax roles, editor on ![#050505](https://placehold.co/12x12/050505/050505.png) `#050505`, status line and popups on ![#111111](https://placehold.co/12x12/111111/111111.png) `#111111`,
+cursor and current line number in ![#8B9388](https://placehold.co/12x12/8b9388/8b9388.png) `#8B9388`, the mode shown as a solid
+![#8B9388](https://placehold.co/12x12/8b9388/8b9388.png) `#8B9388` / ![#9FA89C](https://placehold.co/12x12/9fa89c/9fa89c.png) `#9FA89C` / ![#C2A46D](https://placehold.co/12x12/c2a46d/c2a46d.png) `#C2A46D` block. `install.sh` copies it to
+`~/.config/helix/themes/`.
+
+```bash
+./helix/install.sh
+# ~/.config/helix/config.toml:  theme = "sumi"
+```
+
 ### zsh
 
 `zsh/sumi.zsh` is the rice part of the shell only: `LS_COLORS` (also used by
 lsd for file names and by the completion menu), moss / lichen / gold colours
-for zsh-autosuggestions and zsh-syntax-highlighting, lsd / bat / nvim aliases
-and the starship prompt. Your own `~/.zshrc` stays private and sources it.
+for zsh-autosuggestions and zsh-syntax-highlighting, lsd / bat / nvim aliases,
+the lazygit theme file and the starship prompt. Your own `~/.zshrc` stays private and sources it.
 
 Needs zsh + [oh-my-zsh](https://ohmyz.sh/). `install.sh` clones the two
 plugins if missing and appends one `source` line to `~/.zshrc` (backup in
@@ -506,6 +743,26 @@ reboot
 ./nvim/install.sh
 mkdir -p ~/.config/btop/themes && cp btop/Sumi.theme ~/.config/btop/themes/
 
+./starship/install.sh
+./bat/install.sh
+./delta/install.sh          # then the [include] it prints, in ~/.gitconfig
+./lazygit/install.sh
+./helix/install.sh          # then theme = "sumi" in helix/config.toml
+
+# other terminals, one include line each (see Terminal extras above)
+./kitty/install.sh
+./alacritty/install.sh
+./wezterm/install.sh
+./ghostty/install.sh
+
+# gtk + qt apps (see GTK and Qt apps above)
+./gtk/install.sh
+./qt/install.sh             # then qt6ct → Color scheme → Sumi
+
+# obsidian + discord, both halves in one file (see above)
+./obsidian/install.sh ~/path/to/vault
+./discord/install.sh
+
 # wallpaper
 # Settings → Wallpaper → Add image → a file from backgrounds/ (see Icons and wallpaper above)
 
@@ -536,8 +793,11 @@ It backs up every file it replaces, then:
   The terminal scheme and icon theme are only replaced when the current one is
   not already a Sumi variant, so a dimmer text variant or another icon colour
   survives. Icons stay as they are until `./icons/install.sh` has run.
-- runs the fastfetch, lsd, Neovim and Claude Desktop installers and sets
-  btop's `color_theme`
+- runs the fastfetch, lsd, bat, starship, delta, lazygit, kitty, Alacritty,
+  WezTerm, Ghostty, Helix, GTK, Qt, Discord, Neovim and Claude Desktop
+  installers and sets btop's `color_theme`. The terminal, editor and Qt
+  installers only copy theme files; the include line you added once stays,
+  switch it by hand when the file name differs between rices
 - moves every other rice's LazyVim spec from `~/.config/nvim/lua/plugins/` to
   `~/.config/nvim/rice-off/` (LazyVim loads every spec there and the last
   colorscheme wins); your own specs stay
@@ -554,6 +814,7 @@ The GUI steps it cannot do are printed at the end:
 4. Settings → Wallpaper → a file from `backgrounds/`
 5. Claude Desktop: Ctrl+Shift+T → `cosmic-sumi`, Appearance → Dark
 6. `exec zsh`, restart Neovim (`:Lazy clean` drops plugins only the old specs used)
+7. Obsidian: `./obsidian/install.sh <vault>`; delta: the `[include]` path in `~/.gitconfig`
 
 Skip 1 and 2 when that slot already holds Sumi. The first time on this rice,
 run [Setup](#setup) once for the fonts, icons and cursor.
@@ -578,6 +839,14 @@ puts the Pop cursor back.
 | [lsd](https://github.com/lsd-rs/lsd) | `ls` with icons and colours |
 | [fastfetch](https://github.com/fastfetch-cli/fastfetch) | System info |
 | [btop](https://github.com/aristocratos/btop) | Resource monitor |
+| [starship](https://starship.rs/) | Prompt |
+| [bat](https://github.com/sharkdp/bat) | `cat` with syntax highlighting |
+| [delta](https://github.com/dandavison/delta) | git diff pager |
+| [lazygit](https://github.com/jesseduffield/lazygit) | git TUI |
+| [Helix](https://helix-editor.com/) | Editor |
+| [kitty](https://sw.kovidgoyal.net/kitty/), [Alacritty](https://alacritty.org/), [WezTerm](https://wezterm.org/), [Ghostty](https://ghostty.org/) | Other terminals |
+| [qt6ct](https://github.com/trialuser02/qt6ct) | Qt colour scheme |
+| [Vencord](https://vencord.dev/) / [Vesktop](https://github.com/Vencord/Vesktop) | Discord theme host |
 | [cosmic-icon-themes](https://github.com/atraxsrc/cosmic-icon-themes) | Icon pack (Cosmic-Sumi), recolored from [Kanagawa icons](https://github.com/Fausto-Korpsvart/Kanagawa-GKT-Theme/tree/main/icons/Kanagawa) |
 | [Oxygen-Cursors](https://github.com/wo2ni/Oxygen-Cursors) | Cursor, recoloured to the icon colours |
 

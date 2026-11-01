@@ -1,0 +1,80 @@
+# Sumi for Alacritty, part of cosmic-sumi-theme (MIT).
+# Colours follow the COSMIC Terminal scheme (cosmic-term/).
+#
+# Install: ./alacritty/install.sh puts this in ~/.config/alacritty/themes/,
+# then in ~/.config/alacritty/alacritty.toml:
+#   [general]
+#   import = ["~/.config/alacritty/themes/sumi.toml"]
+# (Alacritty 0.13: a top-level `import = [...]` line instead.)
+
+[colors.primary]
+background = "#050505"
+foreground = "#D6D0C5"
+bright_foreground = "#FFF9ED"
+dim_foreground = "#817E77"
+
+[colors.cursor]
+text = "#050505"
+cursor = "#8B9388"
+
+[colors.vi_mode_cursor]
+text = "#050505"
+cursor = "#E07969"
+
+[colors.selection]
+text = "CellForeground"
+background = "#2A2A2A"
+
+[colors.search.matches]
+foreground = "#050505"
+background = "#C2A46D"
+
+[colors.search.focused_match]
+foreground = "#050505"
+background = "#8B9388"
+
+[colors.hints.start]
+foreground = "#050505"
+background = "#E07969"
+
+[colors.hints.end]
+foreground = "#050505"
+background = "#C2A46D"
+
+[colors.footer_bar]
+foreground = "#D6D0C5"
+background = "#111111"
+
+[colors.line_indicator]
+foreground = "None"
+background = "None"
+
+[colors.normal]
+black   = "#030303"
+red     = "#DA614E"
+green   = "#9FA89C"
+yellow  = "#C2A46D"
+blue    = "#8B9388"
+magenta = "#E07969"
+cyan    = "#717C7C"
+white   = "#D6D0C5"
+
+[colors.bright]
+black   = "#5F5D58"
+red     = "#E17F70"
+green   = "#B1B9AF"
+yellow  = "#CBB183"
+blue    = "#9BA298"
+magenta = "#E7978B"
+cyan    = "#717C7C"
+white   = "#FFF9ED"
+
+[colors.dim]
+black   = "#050505"
+red     = "#BA3B27"
+green   = "#7A8676"
+yellow  = "#9C7C41"
+blue    = "#525E5A"
+magenta = "#CD402A"
+cyan    = "#596161"
+white   = "#A19C94"
