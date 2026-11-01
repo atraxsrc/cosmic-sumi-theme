@@ -136,7 +136,7 @@ carry it with jet text on top.
 │   ├── Sumi.conf                # qt5ct / qt6ct colour scheme
 │   └── install.sh
 ├── starship
-│   ├── starship.toml            # prompt, palette colours, clock on the right
+│   ├── starship.toml            # prompt, palette colours
 │   └── install.sh
 ├── telegram
 │   ├── colors.tdesktop-theme    # Telegram Desktop colour scheme (source)
@@ -520,8 +520,7 @@ kitty and Alacritty have no such switch; include the other file instead.
 `starship/starship.toml` is close to the defaults with the palette declared
 once as `[palettes.sumi]` and used by name: the directory in ![#75897F](https://placehold.co/12x12/75897f/75897f.png) `#75897F`,
 the branch in ![#C2A46D](https://placehold.co/12x12/c2a46d/c2a46d.png) `#C2A46D`, ![#E07969](https://placehold.co/12x12/e07969/e07969.png) `#E07969` for a dirty tree, a ![#9FA89C](https://placehold.co/12x12/9fa89c/9fa89c.png) `#9FA89C` prompt
-character that turns ![#DA614E](https://placehold.co/12x12/da614e/da614e.png) `#DA614E` after a failed command, a dim `HH:MM` clock on
-the right. Modules it does not style keep their defaults, which use the ANSI
+character that turns ![#DA614E](https://placehold.co/12x12/da614e/da614e.png) `#DA614E` after a failed command. Modules it does not style keep their defaults, which use the ANSI
 slots the COSMIC Terminal scheme colours. `zsh/sumi.zsh` already runs
 `starship init`. `install.sh` backs up any existing `~/.config/starship.toml`
 to `starship.toml.bak`.
