@@ -215,7 +215,7 @@ Firefox and the shell layer do not follow the toggle; those are per-rice files.
 | Where | Setting |
 |-------|---------|
 | Fonts | Interface `Maple Mono Normal` Light, monospace `Maple Mono Normal NFM` |
-| Icons | Cosmic-Sumi-Moss |
+| Icons | Cosmic-Sumi-Dark |
 | Windows | Minimize / maximize buttons hidden, theme applied to GNOME apps |
 | Terminal | Maple Mono 15 (weights 500 / bold 800 / dim 300), 77% opacity, no header bar, Sumi |
 
@@ -707,13 +707,13 @@ cp btop/Sumi.theme ~/.config/btop/themes/
 Icons: **Cosmic-Sumi**, the [Kanagawa icons](https://github.com/Fausto-Korpsvart/Kanagawa-GKT-Theme/tree/main/icons/Kanagawa)
 by Fausto Korpsvart recolored to this palette in
 [cosmic-icon-themes](https://github.com/atraxsrc/cosmic-icon-themes). Folders come in
-three colors: **Moss** ![#8B9388](https://placehold.co/12x12/8b9388/8b9388.png) `#8B9388` (default), **Vermilion** ![#DA614E](https://placehold.co/12x12/da614e/da614e.png) `#DA614E` and **Dark** ![#1E1E1E](https://placehold.co/12x12/1e1e1e/1e1e1e.png) `#1E1E1E` with moss symbols.
+three colors: **Moss** ![#8B9388](https://placehold.co/12x12/8b9388/8b9388.png) `#8B9388`, **Vermilion** ![#DA614E](https://placehold.co/12x12/da614e/da614e.png) `#DA614E` and **Dark** ![#1E1E1E](https://placehold.co/12x12/1e1e1e/1e1e1e.png) `#1E1E1E` (default) with moss symbols.
 
 ![Cosmic-Sumi folder colors](https://raw.githubusercontent.com/atraxsrc/cosmic-icon-themes/main/previews/Cosmic-Sumi.png)
 
 ```bash
-./icons/install.sh                       # Moss folders
-./icons/install.sh --variant Vermilion  # or Dark
+./icons/install.sh                 # Dark folders
+./icons/install.sh --variant Moss  # or Vermilion
 ```
 
 It downloads the pack from the latest cosmic-icon-themes release, checks its SHA256,
